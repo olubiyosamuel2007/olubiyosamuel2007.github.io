@@ -34,7 +34,17 @@ body{margin:0;font-family:system-ui;background:var(--bg);color:var(--text)}
 .page{
  padding:20px;text-align:center
 }
-</style>
+.profile-box img{
+  width:140px;
+  height:140px;
+  border-radius:50%;
+  object-fit:cover;
+  border:3px solid #4f46e5;
+}
+
+input[type=file]{
+  font-size:14px;
+ }</style>
 </head>
 
 <body>
@@ -45,7 +55,11 @@ body{margin:0;font-family:system-ui;background:var(--bg);color:var(--text)}
 </div>
 
 <div class="page">
-  <h2>Your Profile</h2>
+  <h2>Your Profile</h2><div class="profile-box">
+  <img id="avatar" src="https://via.placeholder.com/140" alt="Profile Photo">
+  <br><br>
+  <input type="file" id="upload" accept="image/*">
+                        </div>
   <p>This is your profile page.</p>
 </div>
 
@@ -68,7 +82,28 @@ if(localStorage.theme==="dark"){document.body.classList.add("dark")}
 t.onclick=()=>{
  document.body.classList.toggle("dark");
  localStorage.theme=document.body.classList.contains("dark")?"dark":"light";
+} <script>
+const upload = document.getElementById("upload");
+const avatar = document.getElementById("avatar");
+
+// Load saved image
+const savedImage = localStorage.getItem("profilePhoto");
+if(savedImage){
+  avatar.src = savedImage;
 }
+
+// Upload & preview
+upload.onchange = () => {
+  const file = upload.files[0];
+  if(!file) return;
+
+  const reader = new FileReader();
+  reader.onload = () => {
+    avatar.src = reader.result;
+    localStorage.setItem("profilePhoto", reader.result);
+  };
+  reader.readAsDataURL(file);
+};
 </script>
 
 </body>
