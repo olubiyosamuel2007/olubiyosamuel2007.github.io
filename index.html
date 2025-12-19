@@ -95,6 +95,22 @@ body{
   <h2>Olubiyosamuel</h2>
   <a href="#" class="btn">Go To Home</a>
 </div>
+.bottom-nav a.active{
+  color:#4f46e5;
+  font-weight:600;
+}
 
+.bottom-nav a.active i{
+  color:#4f46e5;
+}<script>
+const links = document.querySelectorAll(".bottom-nav a");
+const currentPage = location.pathname.split("/").pop() || "index.html";
+
+links.forEach(link => {
+  if(link.getAttribute("href") === currentPage){
+    link.classList.add("active");
+  }
+});
+  </script>
 </body>
     </html>
