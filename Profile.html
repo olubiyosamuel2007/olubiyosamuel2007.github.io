@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Profile</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+body{margin:0;font-family:system-ui;background:var(--bg);color:var(--text)}
+:root{
+ --bg:#f1f5f9;--card:#fff;--text:#020617;--nav:#fff
+}
+.dark{
+ --bg:#0f172a;--card:#020617;--text:#e5e7eb;--nav:#020617
+}
+.top-nav,.bottom-nav{
+ background:var(--nav);
+ display:flex;
+ justify-content:space-around;
+ padding:12px 0;
+ border-bottom:1px solid #e5e7eb
+}
+.bottom-nav{
+ position:fixed;bottom:0;left:0;right:0;border-top:1px solid #e5e7eb
+}
+.bottom-nav a{
+ text-decoration:none;color:#64748b;font-size:12px;
+ display:flex;flex-direction:column;align-items:center
+}
+.bottom-nav a.active,
+.bottom-nav a.active i{color:#4f46e5}
+.page{
+ padding:20px;text-align:center
+}
+</style>
+</head>
+
+<body>
+
+<div class="top-nav">
+  <b>Profile</b>
+  <i id="themeToggle" class="fa fa-moon"></i>
+</div>
+
+<div class="page">
+  <h2>Your Profile</h2>
+  <p>This is your profile page.</p>
+</div>
+
+<div class="bottom-nav">
+  <a href="index.html"><i class="fa fa-home"></i><span>Home</span></a>
+  <a href="profile.html"><i class="fa fa-user"></i><span>Profile</span></a>
+  <a href="trending.html"><i class="fa fa-fire"></i><span>Trending</span></a>
+  <a href="groups.html"><i class="fa fa-users"></i><span>Groups</span></a>
+  <a href="settings.html"><i class="fa fa-cog"></i><span>Settings</span></a>
+</div>
+
+<script>
+const page = location.pathname.split("/").pop() || "index.html";
+document.querySelectorAll(".bottom-nav a").forEach(a=>{
+ if(a.getAttribute("href")===page) a.classList.add("active")
+});
+
+const t=document.getElementById("themeToggle");
+if(localStorage.theme==="dark"){document.body.classList.add("dark")}
+t.onclick=()=>{
+ document.body.classList.toggle("dark");
+ localStorage.theme=document.body.classList.contains("dark")?"dark":"light";
+}
+</script>
+
+</body>
+  </html>
