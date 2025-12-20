@@ -94,3 +94,94 @@ body {
 .composer span {
   color: #999;
 }
+/* Feed */
+.feed {
+  padding: 12px;
+}
+
+/* Post card */
+.post {
+  background: #14161c;
+  border-radius: 16px;
+  padding: 14px;
+  margin-bottom: 14px;
+}
+
+/* Header */
+.post-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.post-avatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 2px solid #2d2f36;
+}
+
+.post-user {
+  flex: 1;
+}
+
+.name-row {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}
+
+.name {
+  font-weight: 600;
+}
+
+.meta {
+  color: #888;
+  font-size: 13px;
+}
+
+.post-menu {
+  color: #777;
+  font-size: 22px;
+  line-height: 1;
+}
+
+/* Content */
+.post-content {
+  margin-top: 10px;
+}
+
+.post-content p {
+  margin: 6px 0;
+  line-height: 1.45;
+  color: #ddd;
+}
+
+.post-link {
+  display: block;
+  margin-top: 8px;
+  color: #a855f7;
+  word-break: break-all;
+  text-decoration: none;
+}
+
+/* Actions */
+.post-actions {
+  display: flex;
+  gap: 26px;
+  margin-top: 12px;
+  color: #777;
+}
+
+.action {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 14px;
+}
+
+.action svg {
+  width: 20px;
+  height: 20px;
+  fill: #777;
+    }
